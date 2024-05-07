@@ -73,7 +73,10 @@
             --color_shop: #9858f5;
             --color_shop_rgb: 152, 88, 245;
         }
-        html, body {
+        * {
+            box-sizing: border-box;
+        }
+        html, body, form {
             margin: 0;
             padding: 0;
         }
@@ -87,29 +90,75 @@
         }
         #header {
             text-align: left;
+            position: relative;
+            height: 70px;
         }
-        #header-hamburger {
-            margin-top: 18px;
+        #header-hamburger, #header-naverpay, #header-navertalk, #header-notice {
+            position: absolute;
+            top: 18px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-        #header-hamburger:hover {
+        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-navertalk:hover::before, #header-notice:hover::before {
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
         }
-        #header-hamburger > div {
+        #header-hamburger > div, #header-naverpay > div, #header-navertalk > div, #header-notice > div {
             background-image: url(sp_main.74b52318.png);
             width: 26px;
             height: 26px;
+            position: relative;
+            z-index: 1;
             background-size: 444px 434px;
-            background-position: -314px -330px;
             background-repeat: no-repeat;
+        }
+        #header-hamburger {
+            left: -10px;
+        }
+        #header-hamburger > div {
+            background-position: -314px -330px;
+        }
+        #header-naverpay {
+            left: 43px;
+            padding: 7px;
+        }
+        #header-naverpay > div {
+            width: 32px;
+            height: 32px;
+            background-position: -295px -177px;
+        }
+        #header-navertalk {
+            right: 40px;
+        }
+        #header-navertalk > div {
+            background-position: -364px -81px;
+        }
+        #header-notice {
+            right: -10px;
+        }
+        #header-notice > div {
+            background-position: -364px -27px;
         }
         #main {
             height: 2000px;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -119,9 +168,45 @@
             <div id="header">
                 <button id="header-hamburger">
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                </button>
+                <button id="header-naverpay">
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                </button>
+                <button id="header-navertalk">
+                    <div></div>
+                    <span class="blind">네이버 톡</span>
+                </button>
+                <button id="header-notice">
+                    <div></div>
+                    <span class="blind">알림 혜택</span>
                 </button>
             </div>
-            <div id="search"></div>
+            <style>
+                #search > form {
+                    display: inline-block;
+                    width: 708px;
+                    height: 60px;
+                    border: 1px solid #03c75a;
+                    border-radius: 33px;
+                    text-align: left;
+                }
+                #search > form > input {
+                    width: 480px;
+                    height: 100%;
+                    padding: 17px 0;
+                    border: none;
+                    outline: none;
+                }
+            </style>
+            <div id="search">
+                <form action="">
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text"/>
+                    <button class="blind">검색</button>
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
