@@ -191,6 +191,9 @@
                     border-radius: 33px;
                     text-align: left;
                 }
+                #search > form:hover {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+                }
                 #search-svg {
                     display: inline-flex;
                     width: 68px;
@@ -211,6 +214,12 @@
                     font-weight: bold;
                     border: none;
                     outline: none;
+                }
+                #search-input::placeholder {
+                    color: white;
+                }
+                #search-input:focus::placeholder{
+                    color: #e4e4e4;
                 }
                 #search > form > input {
                     width: 480px;
@@ -251,6 +260,9 @@
                     width: 24px;
                     height: 14px;
                 }
+                #search-keyboard:hover::before {
+                    filter: brightness(0.7);
+                }
                 #search-recent::before {
                     content: "";
                     display: block;
@@ -261,12 +273,20 @@
                     width: 10px;
                     height: 6px;
                 }
-                #search-button::before {
+                #search-button  {
+                    padding: 17px 27px 16px 10px;
+                }
+                #search-button > div {
+                    background: #03c75a;
+                    width: 25px;
+                    height: 25px;
+                }
+                #search-button > div::before {
                     content: "";
                     display: inline-block;
                     background-image: url(https://pm.pstatic.net/resources/asset/sp_main.74b52318.png);
                     background-size: 422px 405px;
-                    background-position: -344px -171px;
+                    background-position: -346px -149.5px;
                     background-repeat: no-repeat;
                     width: 25px;
                     height: 25px;
@@ -292,7 +312,78 @@
                     </div>
                 </form>
             </div>
+            <style>
+
+            </style>
             <div id="nav"></div>
+                <ul>
+                    <li>
+                        <a href="">
+                           <div></div>
+                               <span>메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>카페</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>블로그</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>쇼핑</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>뉴스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>증권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>부동산</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>지도</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>웹툰</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span>치지직</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                                <span class="blind">더보기</span>
+                        </a>
+                    </li>
+                </ul>
             <div id="main"></div>
         </div>
     </div>
